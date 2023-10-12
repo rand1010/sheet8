@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>BMI calculator creating USing JavaScript</h1>
+        <p>
+            Your Weight(Kg):
+            <input class="weight-input-field" type="text"><br>
+        </p>
+        <p>
+            Your Height(cm):
+            <input class="height-input-field" type="text"><br>
+        </p>
+        <button class="calculate"> Calculate BMI </button>
+    </div>
+    <h3 class="result"></h3>
+    <p class="result-statement"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+    var heightInput = document.querySelector(".height-input-field");
+    var weightInput = document.querySelector(".weight-input-field");
+    var calculateButton = document.querySelector(".calculate");
+    var result = document.querySelector(".result");
+    var statement = document.querySelector(".result-statement");
+    var BMI, height, weight;
+
+    calculateButton.addEventListener("click", () => {
+
+        height = heightInput.value;
+        weight = weightInput.value;
+        BMI = weight / ((height / 100) ** 2);
+        result.innerText = "Your BMI:" + BMI;
+
+        if (BMI < 18.5) {
+            statement.innerText = "This mean:your BMI:Thats you are underweight";
+        } else if ((BMI > 18.5) && (BMI <= 24.9)) {
+            statement.innerText = "This mean:your BMI:Thats you are healthy";
+        } else if ((BMI >= 25) && (BMI <= 29.9)) {
+            statement.innerText = "This mean:your BMI:Thats you are over weight";
+        } else {
+            statement.innerText = "This mean:your BMI:Thats you are obose";
+        }
+    });
+</script>
